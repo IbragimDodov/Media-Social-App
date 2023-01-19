@@ -3,7 +3,7 @@ import { Users } from '../../dummyData'
 
 import './rightbar.css'
 
-export default function rightbar({profile}) {
+export default function Rightbar({user}) {
 
   const HomeRightbar = () => {
     return (
@@ -30,41 +30,45 @@ export default function rightbar({profile}) {
         <div className="rightbarInfo">
           <div className="rightbarInfoItem">
             <span className="rightbarInfoKey">City:</span>
-            <span className="rightbarInfoValue">New York</span>
+            <span className="rightbarInfoValue">{user.city}</span>
           </div>
           <div className="rightbarInfoItem">
             <span className="rightbarInfoKey">From:</span>
-            <span className="rightbarInfoValue">Madrid</span>
+            <span className="rightbarInfoValue">{user.from}</span>
           </div>
           <div className="rightbarInfoItem">
             <span className="rightbarInfoKey">Relationship:</span>
-            <span className="rightbarInfoValue">Single</span>
+            <span className="rightbarInfoValue">{user.relationship === 1 
+              ? "Single"
+              : user.relationship === 2
+              ? "Married"
+              : "-"}</span>
           </div>
         </div>
         <h4 className="rightbarTitle">User friends</h4>
         <div className="rightbarFollowings">
           <div className="rightbarFollowing">
-            <img src="assets/person/3.jfif" alt="author" className="rightbarFollowingImg" />
+            <img src="/assets/person/3.jfif" alt="author" className="rightbarFollowingImg" />
             <span className="rightbarFollowingName">John Fill</span>
           </div>
           <div className="rightbarFollowing">
-            <img src="assets/person/3.jfif" alt="author" className="rightbarFollowingImg" />
+            <img src="/assets/person/3.jfif" alt="author" className="rightbarFollowingImg" />
             <span className="rightbarFollowingName">John Fill</span>
           </div>
           <div className="rightbarFollowing">
-            <img src="assets/person/3.jfif" alt="author" className="rightbarFollowingImg" />
+            <img src="/assets/person/3.jfif" alt="author" className="rightbarFollowingImg" />
             <span className="rightbarFollowingName">John Fill</span>
           </div>
           <div className="rightbarFollowing">
-            <img src="assets/person/3.jfif" alt="author" className="rightbarFollowingImg" />
+            <img src="/assets/person/3.jfif" alt="author" className="rightbarFollowingImg" />
             <span className="rightbarFollowingName">John Fill</span>
           </div>
           <div className="rightbarFollowing">
-            <img src="assets/person/3.jfif" alt="author" className="rightbarFollowingImg" />
+            <img src="/assets/person/3.jfif" alt="author" className="rightbarFollowingImg" />
             <span className="rightbarFollowingName">John Fill</span>
           </div>
           <div className="rightbarFollowing">
-            <img src="assets/person/3.jfif" alt="author" className="rightbarFollowingImg" />
+            <img src="/assets/person/3.jfif" alt="author" className="rightbarFollowingImg" />
             <span className="rightbarFollowingName">John Fill</span>
           </div>
         </div>
@@ -75,7 +79,7 @@ export default function rightbar({profile}) {
   return (
     <div className='rightbar'>
       <div className="rightbarWrapper">
-        {profile ? <ProfileRightbar/> : <HomeRightbar/>}
+        {user ? <ProfileRightbar/> : <HomeRightbar/>}
       </div>
     </div>
   )
